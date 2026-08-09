@@ -178,6 +178,7 @@
             left: 8px;
             font-size: 11px;
             pointer-events: none;
+            z-index: 5;
         }
 
         /* Memastikan lebar input presisi 100% mengikuti kotak layarnya */
@@ -189,18 +190,22 @@
             border-radius: 5px;
             font-size: 11px;
             background-color: #fafafa;
-            transition: all 0.3s ease;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
         }
 
         @media (min-width: 900px) {
             input, select { padding: 8px 10px 8px 30px; font-size: 12px; }
         }
 
-        input:focus {
+        /* TAMBAHAN REVISI: Kolom otomatis membesar saat diklik/diketik */
+        input:focus, select:focus {
+            transform: scale(1.02);
             border-color: var(--primary-color);
             background-color: #fff;
             outline: none;
-            box-shadow: 0 0 4px rgba(46, 125, 50, 0.2);
+            box-shadow: 0 0 10px rgba(46, 125, 50, 0.3);
+            z-index: 10;
+            position: relative;
         }
 
         .btn-submit {
